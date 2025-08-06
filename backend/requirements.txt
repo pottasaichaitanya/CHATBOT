@@ -1,0 +1,15 @@
+fastapi
+uvicorn[standard]
+sqlalchemy
+databases
+asyncpg
+psycopg2-binary
+pydantic
+python-jose[cryptography]
+passlib[bcrypt]
+python-dotenv
+pyjwt
+google-genai
+bcrypt
+pytest
+httpx

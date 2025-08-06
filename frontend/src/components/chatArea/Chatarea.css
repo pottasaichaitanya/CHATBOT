@@ -1,0 +1,75 @@
+.chatarea {
+  display: flex;
+  height: 100vh;
+}
+
+.chatarea__sidebar {
+  background-color: #050505;
+  color: white;
+  transition: width 0.3s ease;
+  overflow: hidden;
+  width: 40%;
+  min-width: 50px;
+}
+
+.sidebar-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 5px;
+}
+.toggle-button {
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  text-align: center;
+  font-size: 24px;
+    color: white;
+    
+}
+
+.chat__messages {
+  position:relative;
+  background-color: #2b2a2a;
+  flex: 1;
+  padding: 20px;
+  overflow-x: auto;
+  overflow-y: scroll;
+  color: whitesmoke;
+  gap:10px;
+  display: flex ;
+  flex-direction: column;
+}
+
+.chat__messages h2{
+    text-align: center;
+    margin-bottom: 15px;
+    padding-bottom: 25px;
+    /* justify-self: center;
+    align-self: center; */
+    display: block ;
+    border-bottom: 1px solid gainsboro;
+}
+.scroll-to-bottom {
+  position: fixed;
+  bottom: 80px;
+  right: 30px;
+  background-color:whitesmoke;
+  color: black;
+  border: none;
+  border-radius: 90%;
+  padding: 10px 14px;
+  font-size: 20px;
+  cursor: pointer;
+  z-index: 10;
+  transition: background-color 0.3s;
+  font-weight: bold;
+  outline: none ;
+  box-shadow: none;
+}
+
+.scroll-to-bottom:hover {
+  background-color: #666;
+  color: whitesmoke;
+  outline: none;
+}
