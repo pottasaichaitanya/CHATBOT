@@ -1,8 +1,8 @@
 from models.models import User, Chat
-from fastapi import APIRouter, HTTPException, Depends
+from fastapi import APIRouter, Depends
 from pydantic import BaseModel, Field
 from sqlalchemy.orm import Session
-from dbconnection.dbconnection import SessionLocal, get_db
+from dbconnection.dbconnection import get_db
 from passlib.context import CryptContext
 from jose import jwt    
 from datetime import datetime, timedelta ,timezone  

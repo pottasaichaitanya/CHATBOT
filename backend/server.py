@@ -1,6 +1,5 @@
 from fastapi import FastAPI
-from sqlalchemy.orm import Session
-from dbconnection.dbconnection import SessionLocal, engine
+from dbconnection.dbconnection import  engine
 import models.models as models
 from routes.userRoute import router as userroute
 from routes.messages import router as messages_router

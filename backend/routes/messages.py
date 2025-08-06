@@ -4,7 +4,6 @@ from sqlalchemy.orm import Session
 from models.models import User,Message,Chat
 from pydantic import BaseModel, Field
 from dbconnection.dbconnection import get_db
-from collections import defaultdict
 from typing import Optional
 from config import API_KEY
 from routes.authentication import get_current_user_id
@@ -36,7 +35,6 @@ def create_request(request: MessageRequest, db: Session = Depends(get_db),user_i
     user = db.query(User).filter(User.id == request.user_id).first()
     if not user:
         return {"message": "User not found", "status": "error"}
-    chat = db.query(Chat).filter(Chat.id == request.chat_id, Chat.user_id == request.user_id).first()
     response = get_response(request.text)
     new_message = Message(chat_id=request.chat_id, human_message=request.text, ai_message=response)
     db.add(new_message)
