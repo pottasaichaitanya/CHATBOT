@@ -19,10 +19,7 @@ jobs:
 
       - name: Install frontend dependencies
         working-directory: frontend
-        run: |
-          npm install
-          npm install eslint --save-dev
-          npm run lint || echo "Run 'npx eslint --init' to configure ESLint"
+        run: npm install
 
       - name: Lint frontend with ESLint
         working-directory: frontend
