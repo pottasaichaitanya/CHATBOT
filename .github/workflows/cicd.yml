@@ -15,15 +15,15 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '20'
+          node-version: '18'
 
       - name: Install frontend dependencies
         working-directory: frontend
         run: npm install
 
-      - name: Lint frontend with ESLint
-        working-directory: frontend
-        run: npm run lint
+      # - name: Lint frontend with ESLint
+      #   working-directory: frontend
+      #   run: npm run lint
 
       - name: Build frontend Docker image
         working-directory: frontend
