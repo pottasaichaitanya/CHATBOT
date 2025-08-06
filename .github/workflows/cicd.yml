@@ -1,0 +1,54 @@
+name: Docker CI/CD
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+jobs:
+  lint-and-build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+
+      - name: Install frontend dependencies
+        working-directory: frontend
+        run: |
+          npm install
+          npm install eslint --save-dev
+          npm run lint || echo "Run 'npx eslint --init' to configure ESLint"
+
+      - name: Lint frontend with ESLint
+        working-directory: frontend
+        run: npm run lint
+
+      - name: Build frontend Docker image
+        working-directory: frontend
+        run: docker build -t chatbot-frontend:test .
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install backend dependencies
+        working-directory: backend
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Lint with Ruff
+        working-directory: backend
+        run: |
+          pip install ruff
+          ruff check .
+
+      - name: Build backend Docker image
+        working-directory: backend
+        run: docker build -t chatbot-backend:test .
