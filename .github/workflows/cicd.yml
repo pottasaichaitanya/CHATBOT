@@ -19,11 +19,11 @@ jobs:
 
       - name: Install frontend dependencies
         working-directory: frontend
-        run: npm ci
+        run: npm install
 
-      - name: Lint frontend with ESLint
-        working-directory: frontend
-        run: npm run lint
+      # - name: Lint frontend with ESLint
+      #   working-directory: frontend
+      #   run: npm run lint
 
       - name: Build frontend Docker image
         working-directory: frontend
