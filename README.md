@@ -1,3 +1,10 @@
+# routes
+# /users/login and /users/login -> take username and password  return token
+# /messages/request->take token in request headers , text and chat_id in request body it will give ai response 
+# /messages/chat_history=>take token in request headers fetch chat_history in latest activity as first
+# /messages/chat_conversation=>take token in request headers chat_id in request body, fetch chat conversation
+# /messages/create_chat=>take token in request headers  and give acces to new chat_area
+
 ##
 version: '3.8'
 services:
