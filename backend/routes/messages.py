@@ -3,7 +3,7 @@ from  fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 from models.models import User,Message,Chat
 from pydantic import BaseModel, Field
-from dbconnection.dbconnection import SessionLocal, get_db
+from dbconnection.dbconnection import get_db
 from collections import defaultdict
 from typing import Optional
 from config import API_KEY
