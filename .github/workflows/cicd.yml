@@ -63,5 +63,13 @@ jobs:
           file: ./frontend/Dockerfile
           push: true
           tags: pottasaichaitanya/frontend-app:latest
+      - name: Build and push backend Docker image
+        uses: docker/build-push-action@v4
+        with:
+          context: ./backend
+          file: ./backend/Dockerfile
+          push: true
+          tags: pottasaichaitanya/backend-app:latest
+
 
       
