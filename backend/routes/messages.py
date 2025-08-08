@@ -85,7 +85,7 @@ def get_chat_history(request: CreateChatRequest, db: Session = Depends(get_db), 
     chat_history = []
     for chat in chats:
         messages = db.query(Message).filter(Message.chat_id == chat.id).all()
-        if not messages:
+        if chat.id!=request.chat_id and not messages:
             db.delete(chat)
             db.commit()
             continue

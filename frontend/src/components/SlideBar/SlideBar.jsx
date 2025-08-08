@@ -31,7 +31,7 @@ const SlideBar = () => {
 
   const get_new_Chat = async () => {
     try {
-      const response = await axios.post(`${back_end_url}/messages/create_chat`, {}, {
+      const response = await axios.post(`${back_end_url}/messages/create_chat`, {chat_id:chatId}, {
         headers: {
           "Authorization": `Bearer ${token}`,
           "Content-Type": "application/json"
