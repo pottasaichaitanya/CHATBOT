@@ -5,52 +5,6 @@
 # /messages/chat_conversation=>take token in request headers chat_id in request body, fetch chat conversation
 # /messages/create_chat=>take token in request headers  and give acces to new chat_area
 
-##
-version: '3.8'
-services:
-  frontend:
-    image: pottasaichaitanya/frontend-app
-    ports:
-      - "5173:5173"
-    environment:
-      - VITE_BACKEND_URL=http://localhost:8000
-    depends_on:
-      - backend
-    networks:
-      - app-network
-
-  backend:
-    image: pottasaichaitanya/backend-app
-    ports:
-      - "8000:8000"
-    environment:
-      - SECRET_KEY=09d25e094faa6ca2556c818166b7a9563b93f7099f6f0f4caa6cf63b88e8d3e7
-      - ALGORITHM=HS256
-      - ACCESS_TOKEN_EXPIRE_MINUTES=30
-      - DATABASE_URL=postgresql://postgres:1234@db:5432/mydb
-      - API_KEY=AIzaSyBPI09UXBL3IL0EHFkVClkhsHWHLHmG8C4
-    depends_on:
-      - db
-    networks:
-      - app-network
-
-  db:
-    image: postgres:15
-    environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=1234
-      - POSTGRES_DB=mydb
-    volumes:
-      - db-data:/var/lib/postgresql/data
-    networks:
-      - app-network
-
-networks:
-  app-network:
-    driver: bridge
-
-volumes:
-  db-data:
-  ##
+# LINK To docker-compose.yml file->https://drive.google.com/file/d/1nFr_bQyUL8vqZj2xK7ByVb8UjJ7Emmxj/view?usp=sharing
 # This is the docker-compose file  run using docker-compose up then we can acess it locally  where  front end at http://localhost:5173
 # backend at http://localhost:8000
