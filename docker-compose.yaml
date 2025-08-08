@@ -38,7 +38,6 @@ cddservices:
 
 networks:
   app-network:
-    driver: bridge
 
 volumes:
   db-data:
