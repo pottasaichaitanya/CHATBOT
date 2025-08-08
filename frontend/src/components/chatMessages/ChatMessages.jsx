@@ -4,6 +4,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import useStore from '../store/useStore.js';
 import './ChatMessages.css';
 import toast from 'react-hot-toast';
+import ReactMarkdown from 'react-markdown';
 
 const ChatMessages = () => {
   const { chatId } = useParams();
@@ -94,16 +95,17 @@ const ChatMessages = () => {
 
 
             <div className="ai-message-container">
-              <div className="message-ai">{message.ai_message}</div>
-              <button
+               <button
                 className="copy-btn"
                 onClick={() => {
                   navigator.clipboard.writeText(message.ai_message);
                   toast.success('Copied to clipboard!');
                 }}
               >
-                Copy
+                <i className="bi bi-copy"></i>
               </button>
+              <div className="message-ai"><ReactMarkdown>{message.ai_message}</ReactMarkdown></div>
+             
             </div>
           </React.Fragment>
         ))}

@@ -24,7 +24,7 @@ const Chatarea = () => {
   const scrollToBottom = () => {
     if (chatContainerRef.current) {
       chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight;
-      setShowScrollButton(false); 
+      setShowScrollButton(false);
     }
   };
 
@@ -41,7 +41,7 @@ const Chatarea = () => {
     const container = chatContainerRef.current;
     if (container) {
       container.addEventListener('scroll', handleScroll);
-      handleScroll(); 
+      handleScroll();
     }
     return () => {
       if (container) {
@@ -52,7 +52,7 @@ const Chatarea = () => {
 
   return (
     <div className='chatarea'>
-      <div className='chatarea__sidebar' style={{ width: slidebar ? '250px' : '0px' }}>
+      <div className='chatarea__sidebar' style={{ width: slidebar ? '15%' : '0px' }}>
         <div className='sidebar-header'>
           <button className='toggle-button' onClick={() => setSlidebar(!slidebar)}>
             ☰
@@ -63,7 +63,12 @@ const Chatarea = () => {
       </div>
 
       <div className='chat__messages' ref={chatContainerRef}>
-        <h2>Chat Messages</h2>
+        <div className='chat__messages-header'>
+          <h2>Chat Conversation</h2>
+          <button onClick={() => {localStorage.removeItem('token'); navigate('/');}} className="btn btn-outline-danger">
+            <i className="bi bi-box-arrow-right"></i> Logout
+          </button>
+        </div>
         <ChatMessages />
         {showScrollButton && (
           <button className="scroll-to-bottom" onClick={scrollToBottom}>↓</button>

@@ -8,63 +8,76 @@
   color: white;
   transition: width 0.3s ease;
   overflow: hidden;
-  width: 40%;
+  width: 15%;
   min-width: 50px;
 }
-
+.chatarea__sidebar {
+  background-color: #050505;
+  color: white;
+  transition: width 0.3s ease;
+  overflow: hidden;
+  width: 15%;
+  min-width: 50px;
+}
 .sidebar-header {
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
   padding: 5px;
 }
+
 .toggle-button {
   cursor: pointer;
   border: none;
   background-color: transparent;
   text-align: center;
   font-size: 24px;
-    color: white;
-    
+  color: white;
+
 }
 
 .chat__messages {
-  position:relative;
+  position: relative;
   background-color: #2b2a2a;
   flex: 1;
   padding: 20px;
   overflow-x: auto;
   overflow-y: scroll;
   color: whitesmoke;
-  gap:10px;
-  display: flex ;
+  gap: 10px;
+  display: flex;
   flex-direction: column;
 }
 
-.chat__messages h2{
-    text-align: center;
-    margin-bottom: 15px;
-    padding-bottom: 25px;
-    /* justify-self: center;
-    align-self: center; */
-    display: block ;
-    border-bottom: 1px solid gainsboro;
+
+.chat__messages-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid gainsboro;
+  margin-bottom: 5px;
+  padding-bottom: 15px;
+
 }
+
 .scroll-to-bottom {
   position: fixed;
   bottom: 80px;
   right: 30px;
-  background-color:whitesmoke;
+  width: 40px;
+  height: 40px;
+
+  background-color: whitesmoke;
   color: black;
   border: none;
   border-radius: 90%;
-  padding: 10px 14px;
+
   font-size: 20px;
   cursor: pointer;
   z-index: 10;
   transition: background-color 0.3s;
   font-weight: bold;
-  outline: none ;
+  outline: none;
   box-shadow: none;
 }
 
@@ -72,4 +85,28 @@
   background-color: #666;
   color: whitesmoke;
   outline: none;
+}
+
+@media only screen and (max-width: 768px) {
+  .chatarea {
+    flex-direction: column;
+    
+  }
+
+  .chatarea__sidebar {
+    width: 100%;        
+    min-width: 100%;
+    height: auto;        
+  }
+
+  .chat__messages {
+    flex: 1;
+    padding: 10px;
+    height: calc(100vh - 60px); /* Adjust height for header/footer */
+    overflow-y: auto;
+  }
+
+  .chat__messages-header {
+   font-size: x-small;
+  }
 }
