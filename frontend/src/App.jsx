@@ -1,11 +1,11 @@
 import { useState } from 'react'
-import  {Routes, Route} from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 import Chatarea from './components/chatArea/Chatarea.jsx'
 import Login from './components/login/Login.jsx'
 import { Toaster } from 'react-hot-toast'
 function App() {
-  const [logIn,setLogIn]=useState(false)
-  
+const [logIn, setLogIn] = useState(false)
+
 
   return (
     <div className="App">
