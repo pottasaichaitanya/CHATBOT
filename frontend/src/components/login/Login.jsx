@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import './Login.css'
 import { useFormik } from 'formik'
 import toast from 'react-hot-toast'
@@ -59,7 +58,7 @@ const Login = ({ logIn, setLogIn }) => {
         <input type="password" name="password" onChange={formik.handleChange} value={formik.values.password} placeholder="Password" />
         {!logIn ? <input type="password" name="confirmPassword" onChange={formik.handleChange} value={formik.values.confirmPassword} placeholder="Confirm Password" /> : <></>}
         <button type='submit'>{logIn ? 'Login' : 'Sign Up'}</button>
-        {logIn ? <p>Don't have an account? <span onClick={() => setLogIn(false)}>Sign Up</span></p> : <p>Already have an account? <span onClick={() => setLogIn(true)}>Login</span></p>}
+        {logIn ? <p>Don&apos;t have an account? <span onClick={() => setLogIn(false)}>Sign Up</span></p> : <p>Already have an account? <span onClick={() => setLogIn(true)}>Login</span></p>}
       </form>
     </div>
   )

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import React,{ useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import Chatarea from './components/chatArea/Chatarea.jsx'
 import Login from './components/login/Login.jsx'

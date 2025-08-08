@@ -2,12 +2,11 @@ import { useState, useEffect, useRef } from 'react'
 import ChatMessages from '../chatMessages/ChatMessages.jsx'
 import SlideBar from '../SlideBar/SlideBar.jsx';
 import './Chatarea.css'
-import { useParams, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import useStore from '../store/useStore.js'
 import toast from 'react-hot-toast';
 
 const Chatarea = () => {
-  const { chatId } = useParams();
   const { token } = useStore();
   const [slidebar, setSlidebar] = useState(false);
   const [showScrollButton, setShowScrollButton] = useState(false);

@@ -1,7 +1,5 @@
-import { useState, useEffect } from 'react'
 import { create } from 'zustand'
-import axios from 'axios'
-import { toast } from 'react-hot-toast'
+
 
 const useStore = create((set) => ({
     
