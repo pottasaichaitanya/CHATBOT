@@ -8,6 +8,15 @@ on:
 jobs:
   lint-and-build:
     runs-on: ubuntu-latest
+    services:
+      postgres:
+      image: postgres:15
+      env:
+        POSTGRES_USER: postgres
+        POSTGRES_PASSWORD: 1234
+        POSTGRES_DB: mydb
+      ports:
+        - 5432:5432
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -21,9 +30,9 @@ jobs:
         working-directory: frontend
         run: npm install
 
-      # - name: Lint frontend with ESLint
-      #   working-directory: frontend
-      #   run: npm run lint
+      - name: Lint frontend with ESLint
+        working-directory: frontend
+        run: npm run lint
 
       # - name: Build frontend Docker image
       #   working-directory: frontend
