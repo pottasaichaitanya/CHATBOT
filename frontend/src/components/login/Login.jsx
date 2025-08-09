@@ -14,7 +14,6 @@ const Login = ({ logIn, setLogIn }) => {
       password: values.password
     })
     if (response.data.status === 'success') {
-      toast.success(response.data.message)
       setLogIn(true)
       setToken(response.data.access_token);
       console.log(token);
