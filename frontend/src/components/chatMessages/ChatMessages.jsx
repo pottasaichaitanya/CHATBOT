@@ -63,9 +63,12 @@ const ChatMessages = () => {
 
         if (response.data.status === 'success') {
           setMessages(response.data.messages);
-          toast.success('Chat messages fetched successfully');
-        }
-        else {
+          if (response.data.new_chat) {
+            toast.success('New Conversation started');
+          } else {
+            toast.success('Chat Conversation fetched successfully');
+          }
+        } else {
           toast.error(response.data.message);
         }
       } catch (error) {

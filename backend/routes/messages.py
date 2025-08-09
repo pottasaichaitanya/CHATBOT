@@ -65,6 +65,10 @@ def get_chat_conversation(request: CreateChatRequest, db: Session = Depends(get_
         return {"message": "User not found", "status": "error"}
     messages = db.query(Message).filter(Message.chat_id == request.chat_id).all()
     chat_messages=[]
+    if not messages:
+        new_chat=True
+        return {"message": "Chat history retrieved successfully","status": "success", "new_chat": new_chat, "messages": chat_messages}
+
     for message in messages:
         chat_messages.append({
             "human_message": message.human_message,
@@ -72,7 +76,7 @@ def get_chat_conversation(request: CreateChatRequest, db: Session = Depends(get_
             "timestamp": message.timestamp
         })
     chat_messages = sorted(chat_messages, key=lambda x: x['timestamp'])
-    return {"message": "Chat history retrieved successfully","status": "success", "messages": chat_messages}
+    return {"message": "Chat history retrieved successfully","status": "success", "messages": chat_messages,"new_chat": False}
 @router.post('/chat_history')
 def get_chat_history(request: CreateChatRequest, db: Session = Depends(get_db), user_info: dict = Depends(get_current_user_id)):
     if user_info["status"] == "error":
