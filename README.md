@@ -12,4 +12,4 @@
 # Access services:
 #Frontend → http://localhost:5173
 #Backend API → http://localhost:8000
-# Stop services: docker compose down
+# Stop services on command terminal using command: docker compose down
