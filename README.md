@@ -5,7 +5,7 @@
 # /messages/chat_conversation=>take token in request headers chat_id in request body, fetch chat conversation
 # /messages/create_chat=>take token in request headers  and give acces to new chat_area
 
-# LINK To docker-compose.yml file->https://drive.google.com/file/d/1AZ6TM3F34Y2faxdowCzb0BAs8JSraw-F/view
+# LINK To docker-compose.yml file->
 # Install Docker if you haven’t .
 # Download the file from above mentioned link
 # Run the application on command terminal using command ->docker compose up
