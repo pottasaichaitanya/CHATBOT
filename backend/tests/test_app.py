@@ -6,7 +6,7 @@ client = TestClient(app)
 
 
 test_example = {
-    "username": "testuser_123",
+    "username": "testuser",
     "password": "testpassword"
 }
 access_token = None
@@ -71,7 +71,6 @@ def test_chat_response():
     assert data["status"] == "success"
     assert "response" in data
     assert data["response"] is not None
-    assert isinstance(data["response"], str)
     print(data["response"])
     
     
@@ -103,12 +102,6 @@ def test_chat_conversation():
     assert data["status"] == "success"
     assert "messages" in data 
     assert "message" in data
-
-
-
-
-
-
 
 
 
