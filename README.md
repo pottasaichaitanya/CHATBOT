@@ -8,6 +8,8 @@
 # LINK To docker-compose.yml file->https://drive.google.com/file/d/1nFr_bQyUL8vqZj2xK7ByVb8UjJ7Emmxj/view?usp=sharing
 # Install Docker if you haven’t .
 # Download the file from above mentioned link
-# Run the application:docker compose up
-# Access services:Frontend → http://localhost:5173,Backend API → http://localhost:8000
+# Run the application on command terminal using command ->docker compose up
+# Access services:
+#Frontend → http://localhost:5173
+#Backend API → http://localhost:8000
 # Stop services: docker compose down
